@@ -16,20 +16,10 @@
     box-sizing: border-box;
     font-family: 'Kumbh Sans', sans-serif;
 }
-nav,
-.links,
-.links ul,
-.profile,
-main,
-.product-images,
-.thumbnails,
-.product-details,
-.prices,
-.cart-details{
+nav,.links,.links ul,.profile,main,.product-images,.thumbnails,.product-details,.prices,.cart-details,.prices,.price, .cart-details, .items,.items div, button{
     display: flex;
 }
-nav,
-.profile{
+nav,.profile, .items, button, .items div{
     align-items: center;
 }
 nav{
@@ -39,9 +29,10 @@ nav{
     margin: 0 auto;
     border-bottom: 2px solid var(--Light-grayish-blue);
 }
-.links,
-.profile,
-.product-images{
+.profile img, .main-image, .thumbnails img, .items div, button{
+    cursor: pointer;
+}
+.links,.profile,.product-images,.prices{
     gap: 2rem;
 }
 .links ul li, li a{
@@ -51,6 +42,10 @@ nav{
     padding: 0 .5rem;
     opacity: 70%;
 }
+li a:hover{
+    opacity: 100%;
+    border-bottom: 4px solid var(--Orange);
+}
 .profile img:last-child{
     width: 3rem;
 }
@@ -58,9 +53,11 @@ main{
     margin: 4rem auto;
     width: 80vw;
 }
-.product-images{
+.product-images, .product-details, .prices{
     flex-direction: column;
-    width: fit-content;
+}
+.product-images{
+    width: 50%;
 }
 .thumbnails{
     justify-content: space-between;
@@ -76,8 +73,61 @@ main{
     border-radius: .5rem;
 }
 .product-details{
-    flex-direction: column;
+    justify-content: space-around;
     height: 65vh;
-    justify-content: center;
+    width: 40%;
 }
-
+.product-details > p, .heading p, .prices{
+    margin: 2rem 0;
+}
+.product-details > p{
+    line-height: 2rem;
+    opacity: 80%;
+}
+.heading p, .price p:first-child, .price p:last-child,.items span ,button{
+    font-weight: bold;
+}
+.heading p{
+    color: var(--Orange);
+}
+.heading h2{
+    font-size: 2.5rem;
+}
+.price, .cart-details, button{
+    gap: 1rem;
+}
+.price p:first-child{
+    font-size: 1.5rem;
+}
+.price p:last-child{
+    background-color: var(--Pale-orange);
+    color: var(--Orange);
+    height: fit-content;
+    width: fit-content;
+    text-align: center;
+    padding: .3rem .5rem;
+}
+.discount{
+    opacity: 80%;
+    text-decoration: line-through;
+}
+.items{
+    justify-content: space-between;
+    background-color: var(--Light-grayish-blue);
+    width: 8rem;
+    height: 3rem;
+    padding: 0 .5rem;
+    border-radius: .5rem;
+}
+.items div{
+    height: 100%;
+}
+button{
+    background-color: var(--Orange);
+    color: var(--White);
+    padding: 0 3rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    border-radius: .5rem;
+}
