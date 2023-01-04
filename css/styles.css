@@ -16,10 +16,10 @@
     box-sizing: border-box;
     font-family: 'Kumbh Sans', sans-serif;
 }
-nav,.links,.links ul,.profile,main,.product-images,.thumbnails,.product-details,.prices,.cart-details,.prices,.price, .cart-details, .items,.items div, button{
+nav,.links,.links ul,.links ul li,.profile,main,.product-images,.thumbnails,.product-details,.prices,.cart-details,.prices,.price, .cart-details, .items,.items div,.cart-details button, .cart, .cart > div, .infos{
     display: flex;
 }
-nav,.profile, .items, button, .items div{
+nav,.profile, .items,.cart-details button, .items div{
     align-items: center;
 }
 nav{
@@ -29,11 +29,18 @@ nav{
     margin: 0 auto;
     border-bottom: 2px solid var(--Light-grayish-blue);
 }
-.profile img, .main-image, .thumbnails img, .items div, button{
+.profile img, .main-image,.links ul li ,.thumbnails img, .items div, button, .delete{
     cursor: pointer;
 }
-.links,.profile,.product-images,.prices{
+.links, main, .links ul li, .cart > div{
+    justify-content: center;
+    align-items: center;
+}
+.links,.profile,.product-images,.prices, .cart{
     gap: 2rem;
+}
+.links ul li{
+    height: 20vh;
 }
 .links ul li, li a{
     text-decoration: none;
@@ -42,18 +49,22 @@ nav{
     padding: 0 .5rem;
     opacity: 70%;
 }
-li a:hover{
+li:hover{
     opacity: 100%;
-    border-bottom: 4px solid var(--Orange);
+    border-bottom: 2px solid var(--Orange);
 }
-.profile img:last-child{
+.picture img{
     width: 3rem;
+    border-radius: 50%;
+}
+.picture img:hover, .active{
+    border: 2px solid var(--Orange);
 }
 main{
-    margin: 4rem auto;
+    margin: 2rem auto;
     width: 80vw;
 }
-.product-images, .product-details, .prices{
+.product-images, .product-details, .prices, .cart, .infos{
     flex-direction: column;
 }
 .product-images{
@@ -68,9 +79,14 @@ main{
     width: 80%;
     border-radius: 1rem;
 }
+.thumbnails img,.cart-details button, .cart button, .items,.cart{
+    border-radius: .5rem;    
+}
 .thumbnails img{
     width: 20%;
-    border-radius: .5rem;
+}
+.thumbnails img:hover, .items div:hover, button:hover, .active, .delete:hover{
+    opacity: 60%;
 }
 .product-details{
     justify-content: space-around;
@@ -84,7 +100,7 @@ main{
     line-height: 2rem;
     opacity: 80%;
 }
-.heading p, .price p:first-child, .price p:last-child,.items span ,button{
+.heading p, .price p:first-child, .price p:last-child,.items span ,button, .cart > p, .total{
     font-weight: bold;
 }
 .heading p{
@@ -93,7 +109,7 @@ main{
 .heading h2{
     font-size: 2.5rem;
 }
-.price, .cart-details, button{
+.price, .cart-details, button, .cart > div, .infos{
     gap: 1rem;
 }
 .price p:first-child{
@@ -117,17 +133,44 @@ main{
     width: 8rem;
     height: 3rem;
     padding: 0 .5rem;
-    border-radius: .5rem;
 }
 .items div{
     height: 100%;
 }
-button{
+.cart-details button, .cart button{
     background-color: var(--Orange);
     color: var(--White);
     padding: 0 3rem;
     border: none;
     outline: none;
     font-size: 1rem;
-    border-radius: .5rem;
+}
+
+/* Cart section styling */
+.cart{
+    height: 16rem;
+    width: 22rem;
+    background-color: var(--White);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .3);
+    padding: 0 1rem;
+    z-index: 2;
+    position: absolute;
+    bottom: 55%;
+    right: 15%;
+    transition: .25s;
+    transform-origin: top right;
+    transform: scale(0);
+}
+.cart-img:hover .cart{
+    transform: scale(1);
+}
+.cart div img:first-child{
+    width: 3rem;
+}
+.cart > p{
+    border-bottom: 2px solid var(--Light-grayish-blue);
+    padding: 1rem 0;
+}
+.cart button{
+    padding: 1rem 3rem;
 }
