@@ -16,7 +16,7 @@
     box-sizing: border-box;
     font-family: 'Kumbh Sans', sans-serif;
 }
-nav,.links,.links ul,.links ul li,.profile,main,.product-images,.thumbnails,.product-details,.prices,.cart-details,.prices,.price, .cart-details, .items,.items div,.cart-details button, .cart, .cart > div, .infos{
+nav,.links,.links ul,.links ul li,.profile,main,.product-images,.thumbnails,.product-details,.prices,.cart-details,.prices,.price, .cart-details, .items,.items div,.cart-details button, .cart, .cart > div, .infos, #lightbox.clicked{
     display: flex;
 }
 nav,.profile, .items,.cart-details button, .items div{
@@ -32,7 +32,7 @@ nav{
 .profile img, .main-image,.links ul li ,.thumbnails img, .items div, button, .delete{
     cursor: pointer;
 }
-.links, main, .links ul li, .cart > div{
+.links, main, .links ul li, .cart > div, #lightbox.clicked{
     justify-content: center;
     align-items: center;
 }
@@ -79,7 +79,7 @@ main{
     width: 80%;
     border-radius: 1rem;
 }
-.thumbnails img,.cart-details button, .cart button, .items,.cart{
+.thumbnails img,.cart-details button, .cart button, .items,.cart, .cart-img span{
     border-radius: .5rem;    
 }
 .thumbnails img{
@@ -100,7 +100,7 @@ main{
     line-height: 2rem;
     opacity: 80%;
 }
-.heading p, .price p:first-child, .price p:last-child,.items span ,button, .cart > p, .total{
+.heading p, .price p:first-child, .price p:last-child,.items span ,button, .cart > p, .total, .profile span{
     font-weight: bold;
 }
 .heading p{
@@ -136,6 +136,7 @@ main{
 }
 .items div{
     height: 100%;
+    z-index: 10;
 }
 .cart-details button, .cart button{
     background-color: var(--Orange);
@@ -173,4 +174,24 @@ main{
 }
 .cart button{
     padding: 1rem 3rem;
+}
+.cart-img > span{
+    display: none;
+    color: var(--White);
+    background-color: var(--Orange);
+    width: 1.5rem;
+    height: 1rem;
+    position: absolute;
+    top: 6.2%;
+    text-align: center;
+}
+/* Lightbox design */
+#lightbox{
+    display: none;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, .8);
 }
