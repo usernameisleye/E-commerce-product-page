@@ -162,7 +162,7 @@ main{
     transform-origin: top right;
     transform: scale(0);
 }
-.cart-img:hover .cart{
+.cart.open{
     transform: scale(1);
 }
 .cart div img:first-child{

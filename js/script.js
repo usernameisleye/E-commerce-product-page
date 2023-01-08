@@ -1,6 +1,8 @@
 const itemsNum = document.querySelector('.items span');
 const itemsBtns = document.querySelectorAll('.items div');
 const cartNum = document.querySelector('.cart-count');
+const cart = document.querySelector('.cart');
+const cartImg = document.querySelector('.cart-img')
 
 let count = 0;
 
@@ -27,3 +29,14 @@ itemsBtns.forEach(btn =>{
         }
     })
 })
+
+function openCart(openedCart){
+    let openCartVar = openedCart.parentElement.lastElementChild
+    openCartVar.classList.add('open');
+    
+    document.addEventListener('click', e =>{
+        if(e.target != openCartVar){
+            openCartVar.classList.remove('open');
+        }
+    })
+}
