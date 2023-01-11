@@ -2,9 +2,13 @@ const itemsNum = document.querySelector('.items span');
 const itemsBtns = document.querySelectorAll('.items div');
 const cartNum = document.querySelector('.cart-count');
 const cart = document.querySelector('.cart');
-const cartImg = document.querySelector('.cart-img')
+const cartImg = document.querySelector('.cart-img');
+const addToCart = document.querySelector('.cart-details button')
+const cartContent = document.querySelector('.cart-content');
 
 let count = 0;
+
+addToCart.addEventListener('click', addItem)
 
 itemsBtns.forEach(btn =>{
     btn.addEventListener('click', e =>{
@@ -29,13 +33,13 @@ itemsBtns.forEach(btn =>{
         }
     })
 })
-
+//probshere
 function openCart(openedCart){
-    let openCartVar = openedCart.parentElement.lastElementChild
+    let openCartVar = openedCart.parentElement.lastElementChild.firstChild
     openCartVar.classList.add('open');
     
     document.addEventListener('click', e =>{
-        if(e.target != openCartVar){
+        if(e.target != openedCart){
             openCartVar.classList.remove('open');
         }
     })

@@ -148,6 +148,9 @@ main{
 }
 
 /* Cart section styling */
+.cart-content{
+    padding: 1rem 0 0;
+}
 .cart{
     height: 16rem;
     width: 22rem;
