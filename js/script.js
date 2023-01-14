@@ -8,8 +8,6 @@ const cartContent = document.querySelector('.cart-content');
 
 let count = 0;
 
-addToCart.addEventListener('click', addItem)
-
 itemsBtns.forEach(btn =>{
     btn.addEventListener('click', e =>{
         const type = e.target.classList;
@@ -35,12 +33,13 @@ itemsBtns.forEach(btn =>{
 })
 //probshere
 function openCart(openedCart){
-    let openCartVar = openedCart.parentElement.lastElementChild.firstChild
+    let openCartVar = openedCart.parentElement.lastElementChild.firstElementChild
     openCartVar.classList.add('open');
     
-    document.addEventListener('click', e =>{
-        if(e.target != openedCart){
-            openCartVar.classList.remove('open');
-        }
-    })
-}
+    // document.addEventListener('click', e =>{
+    //     if(e.target.tagName == 'DiV'){
+    //         openCartVar.classList.remove('open');
+    //     }
+    // }
+    // )
+} 
