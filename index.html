@@ -12,6 +12,7 @@
 </head>
 
 <body class="body">
+    <div class="overlay"></div>
     <nav>
         <div class="links">
             <img src="./images/logo.svg" alt="">
@@ -26,7 +27,8 @@
         </div>
 
         <div class="profile">
-            <div class="cart-img"><img src="./images/icon-cart.svg" alt="" style="position: relative;" onclick="openCart(this)">
+            <div class="cart-img">
+              <img src="./images/icon-cart.svg" alt="" style="position: relative;" onclick="openCart(this)">
               <span class="cart-count">0</span>
 
               
@@ -43,7 +45,7 @@
         </div>
     </nav>
 
-    <main>
+    <main class="main">
       <section class="product-images">
           <img class="main-image" src="./images/image-product-1.jpg" alt="">
 
@@ -75,9 +77,9 @@
 
         <div class="cart-details">
           <div class="items">
-            <div class="minus"><img src="./images/icon-minus.svg" alt=""></div>
+            <div ><img class="minus" src="./images/icon-minus.svg" alt=""></div>
             <span>0</span>
-            <div class="plus"><img src="./images/icon-plus.svg" alt=""></div>
+            <div ><img class="plus" src="./images/icon-plus.svg" alt=""></div>
           </div>
 
           <button>

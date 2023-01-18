@@ -1,8 +1,8 @@
 const itemsNum = document.querySelector('.items span');
 const itemsBtns = document.querySelectorAll('.items div');
-const cartNum = document.querySelector('.cart-count');
-const total = document.querySelector('.total');
-const itemsNumber = document.querySelector('.num');
+let cartNum = document.querySelector('.cart-count');
+let total = document.querySelector('.total');
+let itemsNumber = document.querySelector('.num');
 const cart = document.querySelector('.cart');
 const cartImg = document.querySelector('.cart-img');
 const addToCart = document.querySelector('.cart-details button')
@@ -31,7 +31,7 @@ itemsBtns.forEach(btn =>{
         itemsNumber = count;
         total = `$${125 * count}`;
 
-        if (cartNum.innerText > 0){
+        if (parseInt(cartNum.innerText) > 0){
             cartNum.style.display = 'block';
         }
         else{
@@ -42,15 +42,19 @@ itemsBtns.forEach(btn =>{
 
 function openCart(openedCart){
     let openCartVar = openedCart.parentElement.lastElementChild.firstElementChild
-    openCartVar.classList.add('open');
+    openCartVar.classList.toggle('open');
+    document.querySelector('.overlay').classList.toggle('active');
     
     document.addEventListener('click', e =>{
-        if(e.target.classList.contains('body')){
+        if(e.target.classList.contains('overlay')){
             openCartVar.classList.remove('open');
+            document.querySelector('.overlay').classList.remove('active');
         }
     }
     )
+   
 } 
+
 
 function addItem(){
     items += `<div class="cart">
