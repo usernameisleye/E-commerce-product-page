@@ -16,7 +16,7 @@
     box-sizing: border-box;
     font-family: 'Kumbh Sans', sans-serif;
 }
-nav,.links,.links ul,.links ul li,.profile,main,.product-images,.thumbnails,.product-details,.prices,.cart-details,.prices,.price, .cart-details, .items,.items div,.cart-details button, .cart, .cart > div, .infos, #lightbox.clicked{
+nav,.links,.links ul,.links ul li,.profile,main,.product-images,.thumbnails,.product-details,.prices,.cart-details,.prices,.price, .cart-details, .items,.items div,.cart-details button, .cart, .cart > div, .infos, #lightbox.clicked, .empty-msg{
     display: flex;
 }
 nav,.profile, .items,.cart-details button, .items div{
@@ -32,7 +32,7 @@ nav{
 .profile img, .main-image,.links ul li ,.thumbnails img, .items div, button, .delete{
     cursor: pointer;
 }
-.links, main, .links ul li, .cart > div, #lightbox.clicked{
+.links, main, .links ul li, .cart > div,.profile, #lightbox.clicked, .empty-msg{
     justify-content: center;
     align-items: center;
 }
@@ -185,8 +185,12 @@ main{
     width: 1.5rem;
     height: 1rem;
     position: absolute;
-    top: 6.2%;
+    top: 5%;
     text-align: center;
+}
+.empty-msg{
+    height: 50%;
+    opacity: 70%;
 }
 /* Lightbox design */
 #lightbox{
