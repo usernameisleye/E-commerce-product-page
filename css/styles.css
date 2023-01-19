@@ -231,6 +231,7 @@ div.overlay.active {
 @media screen and (max-width: 375px) {
     nav{
         height: 12vh;
+        width: 90vw;
     }
     .links, .links ul,main, .cart-details{
         flex-direction: column;
@@ -247,10 +248,10 @@ div.overlay.active {
         width: 60vw;
         height: 100vh;
         transition: .25s;
-        transform-origin: top right;
         transform: scale(0);
+        transform-origin: top left;
     }
-    .show-ul{
+    .links ul.show-ul{
         transform: scale(1);
     }
     .links ul img, .tab{
@@ -281,7 +282,13 @@ div.overlay.active {
     .prices{
         flex-direction: row;
     }
+    .cart{
+        width: 18rem;
+    }
     .cart-details > div{
         width: 100%;
+    }
+    .cart-img > span{
+        top: 1%;
     }
 }

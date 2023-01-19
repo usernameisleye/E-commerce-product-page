@@ -7,8 +7,13 @@ const cart = document.querySelector('.cart');
 const cartImg = document.querySelector('.cart-img');
 const addToCart = document.querySelector('.cart-details button')
 const cartContent = document.querySelector('.cart-content');
+const showUlBtn = document.querySelector('.tab');
+const ulTab = document.querySelector('.links ul');
+const closeUlBtn = document.querySelector('.links ul img')
 
 addToCart.addEventListener('click', addItem);
+showUlBtn.addEventListener('click', showUl);
+closeUlBtn.addEventListener('click', closeUl);
 
 let count = 0;
 let items = '';
@@ -89,3 +94,13 @@ cartContent.addEventListener('click', e =>{
         location.reload()
     }
 })
+
+function showUl(){
+    ulTab.classList.add('show-ul');
+    document.querySelector('.overlay').classList.add('active');
+}
+
+function closeUl(){
+    ulTab.classList.remove('show-ul');
+    document.querySelector('.overlay').classList.remove('active');
+}
