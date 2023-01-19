@@ -20,10 +20,10 @@
 html {
     position: relative;
 }
-nav,.links,.links ul,.links ul li,.profile,main,.product-images,.thumbnails,.product-details,.prices,.cart-details,.prices,.price, .cart-details, .items,.items div,.cart-details button, .cart, .cart > div, .infos, #lightbox.clicked, .empty-msg{
+nav,.links,.links ul,.links ul li,.profile ,main,.product-images,.thumbnails,.product-details,.prices,.cart-details,.prices,.price, .cart-details, .items,.items div,.cart-details button, .cart, .cart > div, .infos, #lightbox.clicked, .empty-msg, .cart-img{
     display: flex;
 }
-nav,.profile, .items,.cart-details button, .items div{
+nav,.items, .items div{
     align-items: center;
 }
 nav{
@@ -33,10 +33,10 @@ nav{
     margin: 0 auto;
     border-bottom: 2px solid var(--Light-grayish-blue);
 }
-.profile img, .main-image,.links ul li ,.thumbnails img, .items div, button, .delete{
+.profile img, .main-image,.links ul li ,.thumbnails img, .items div, button, .delete, .links ul img{
     cursor: pointer;
 }
-.links, main, .links ul li, .cart > div,.profile, #lightbox.clicked, .empty-msg{
+.links, main, .links ul li, .cart > div,.profile,.cart-details button ,#lightbox.clicked, .empty-msg, .cart-img{
     justify-content: center;
     align-items: center;
 }
@@ -52,6 +52,11 @@ nav{
     color: var(--Black);
     padding: 0 .5rem;
     opacity: 70%;
+}
+.links ul img, .tab{
+    width: 1rem;
+    margin: 1rem;
+    display: none;
 }
 li:hover{
     opacity: 100%;
@@ -104,19 +109,9 @@ main{
     line-height: 2rem;
     opacity: 80%;
 }
-.heading p, .price p:first-child, .price p:last-child,.items span ,button, .cart > p, .total, .profile span{
+.heading p, .price p:first-child, .price p:last-child,.items span ,button, .cart > p, .total, .profile span, .cart-img span{
     font-weight: bold;
 }
-
-.profile span{
-    transform: scale(.8) translate(10px, -25px);
-    font-weight: 500;
-    font-size: .6rem;
-    border-radius: 50%;
-    padding: 3px 2px;
-
-}
-
 .heading p{
     color: var(--Orange);
 }
@@ -150,7 +145,6 @@ main{
 }
 .items div{
     height: 100%;
-    z-index: 10;
 }
 .cart-details button, .cart button{
     background-color: var(--Orange);
@@ -166,21 +160,23 @@ main{
     padding: 1rem 0 0;
 }
 .cart{
+    height: 16rem;
     width: 22rem;
     background-color: var(--White);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .3);
     padding: 0 1rem;
     z-index: 10;
     position: absolute;
-    top: 12%;
+    top: 5%;
     right: 15%;
     transition: .25s;
     transform-origin: top right;
-    display: none;
-    padding-bottom: 1.5rem;
+    /* display: none; */
+    transform: scale(0);
 }
 .cart.open{
-    display: block;
+    /* display: block; */
+    transform: scale(1);
 }
 .cart div img:first-child{
     width: 3rem;
@@ -189,9 +185,8 @@ main{
     border-bottom: 2px solid var(--Light-grayish-blue);
     padding: 1rem 0;
 }
-.cart button{
-    margin-top: 2rem;
-    width: 100%;
+.cart button, .cart-details button{
+    /* width: 100%; */
     padding: 1rem 3rem;
 }
 .cart-img > span{
@@ -199,9 +194,9 @@ main{
     color: var(--White);
     background-color: var(--Orange);
     width: 1.5rem;
-    height: 1rem;
+    height: 1.1rem;
     position: absolute;
-    top: 5%;
+    top: 4.4%;
     text-align: center;
 }
 .empty-msg{
@@ -231,4 +226,62 @@ div.overlay {
 
 div.overlay.active {
     display: block;
+}
+
+@media screen and (max-width: 375px) {
+    nav{
+        height: 12vh;
+    }
+    .links, .links ul,main, .cart-details{
+        flex-direction: column;
+    }
+    .profile, .links{
+        gap: 1rem;
+    }
+    .links ul{
+        background-color: var(--White);
+        z-index: 1;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 60vw;
+        height: 100vh;
+        transition: .25s;
+        transform-origin: top right;
+        transform: scale(0);
+    }
+    .show-ul{
+        transform: scale(1);
+    }
+    .links ul img, .tab{
+        display: block;
+    }
+    .links ul li{
+        height: 3rem;
+        font-weight: bold;
+        opacity: 100%;
+    }
+    .picture img{
+        width: 2.5rem;
+    }
+    .thumbnails{
+        display: none;
+    }
+    .main-image{
+        height: 100%;
+    }
+    .product-details{
+        height: auto;
+        width: 100%;
+        justify-content: center;
+    }
+    .heading h2{
+        font-size: 2rem;
+    }
+    .prices{
+        flex-direction: row;
+    }
+    .cart-details > div{
+        width: 100%;
+    }
 }

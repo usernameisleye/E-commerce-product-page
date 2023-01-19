@@ -71,7 +71,10 @@ function addItem(){
                 </div>
                 <button>Checkout</button>
             </div>`
-    cartContent.innerHTML = items;           
+
+    if(count > 0){
+        cartContent.innerHTML = items; 
+    }else{return}               
 }
 
 cartContent.addEventListener('click', e =>{
@@ -82,5 +85,7 @@ cartContent.addEventListener('click', e =>{
                         <span class="empty-msg">Your cart is empty</span>
                     </div>`
         cartContent.innerHTML = emptyCart;
+        document.querySelector('.overlay').classList.remove('active');
+        location.reload()
     }
 })
