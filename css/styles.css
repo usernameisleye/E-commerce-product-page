@@ -53,7 +53,7 @@ nav{
     padding: 0 .5rem;
     opacity: 70%;
 }
-.links ul img, .tab{
+.links ul img, .tab, .tab-div{
     width: 1rem;
     margin: 1rem;
     display: none;
@@ -254,7 +254,7 @@ div.overlay.active {
     .links ul.show-ul{
         transform: scale(1);
     }
-    .links ul img, .tab{
+    .links ul img, .tab, .tab-div{
         display: block;
     }
     .links ul li{
