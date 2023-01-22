@@ -49,11 +49,14 @@ function openCart(openedCart){
     let openCartVar = openedCart.parentElement.lastElementChild.firstElementChild
     openCartVar.classList.toggle('open');
     document.querySelector('.overlay').classList.toggle('active');
+    cartNum.style.display = 'none';
     
     document.addEventListener('click', e =>{
         if(e.target.classList.contains('overlay')){
             openCartVar.classList.remove('open');
             document.querySelector('.overlay').classList.remove('active');
+            cartNum.style.display = 'block';
+
         }
     }
     )

@@ -32,7 +32,7 @@
 
         <div class="profile">
             <div class="cart-img">
-              <img src="./images/icon-cart.svg" alt="" style="position: relative;" onclick="openCart(this)">
+              <img src="./images/icon-cart.svg" alt=""  onclick="openCart(this)">
               <span class="cart-count">0</span>
 
               
@@ -51,7 +51,12 @@
 
     <main class="main">
       <section class="product-images">
-          <img class="main-image" src="./images/image-product-1.jpg" alt="">
+        <div class="image-content">
+            <img class="main-image" src="./images/image-product-1.jpg" alt="">
+
+            <i class="fa-solid fa-angle-right next controls"></i>
+            <i class="fa-solid fa-angle-left previous controls"></i>
+          </div>
 
         <div class="thumbnails">
           <img class="active" src="./images/image-product-1-thumbnail.jpg" alt="">
