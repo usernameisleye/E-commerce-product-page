@@ -200,6 +200,7 @@ main{
     position: absolute;
     bottom: 85%;
     text-align: center;
+    font-display: 1rem;
 }
 .empty-msg{
     height: 50%;
