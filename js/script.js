@@ -5,15 +5,21 @@ let total = document.querySelector('.total');
 let itemsNumber = document.querySelector('.num');
 const cart = document.querySelector('.cart');
 const cartImg = document.querySelector('.cart-img');
-const addToCart = document.querySelector('.cart-details button')
+const addToCart = document.querySelector('.cart-details button');
 const cartContent = document.querySelector('.cart-content');
 const showUlBtn = document.querySelector('.tab');
 const ulTab = document.querySelector('.links ul');
-const closeUlBtn = document.querySelector('.links ul img')
+const closeUlBtn = document.querySelector('.links ul img');
+const mainImage = document.querySelector(".main-image");
+const lightBoxOverlay = document.querySelector(".lightbox-overlay");
+const lightClose = document.querySelector(".lightbox-close");
+
 
 addToCart.addEventListener('click', addItem);
 showUlBtn.addEventListener('click', showUl);
 closeUlBtn.addEventListener('click', closeUl);
+mainImage.addEventListener("click", openLightBox);
+lightClose.addEventListener("click", closeLightBox);
 
 let count = 0;
 let items = '';
@@ -36,7 +42,7 @@ itemsBtns.forEach(btn =>{
         itemsNumber = count;
         total = `$${125 * count}`;
 
-        if (parseInt(cartNum.innerText) > 0){
+        if (cartNum.innerText > 0){
             cartNum.style.display = 'block';
         }
         else{
@@ -94,7 +100,7 @@ cartContent.addEventListener('click', e =>{
                     </div>`
         cartContent.innerHTML = emptyCart;
         document.querySelector('.overlay').classList.remove('active');
-        location.reload()
+        location.reload();
     }
 })
 
@@ -106,4 +112,16 @@ function showUl(){
 function closeUl(){
     ulTab.classList.remove('show-ul');
     document.querySelector('.overlay').classList.remove('active');
+}
+
+let selectedImg = ""
+function openLightBox(e){
+    lightBoxOverlay.style.display = "flex";
+    // function preview(){
+    //     selectedImg = e.target.src;
+    // }
+    // preview()
+}
+function closeLightBox(){
+    lightBoxOverlay.style.display = "none";
 }
