@@ -89,9 +89,13 @@ main{
     width: 80%;
 }
 .main-image{
+    position: relative;
     height: 80%;
     width: 80%;
     border-radius: 1rem;
+}
+.nxt, .prev{
+    display: none;
 }
 .thumbnails img,.cart-details button, .cart button, .items,.cart, .cart-img span{
     border-radius: .5rem;    
@@ -150,6 +154,9 @@ main{
 }
 .items div{
     height: 100%;
+}
+.items div img{
+    z-index: -100;
 }
 .cart-details button, .cart button{
     background-color: var(--Orange);
@@ -238,9 +245,11 @@ main{
   .controls{
     position: absolute;
     top: 50%;
+    height: 2rem;
+    width: 2rem;
+    padding: .5rem;
     transform: translateY(-50%);
     background-color: var(--White);
-    padding: .5rem .7rem;
     border-radius: 50%;
     cursor: pointer;
   }
@@ -268,8 +277,7 @@ div.overlay {
     bottom: 0;
     right: 0;
     background: rgb(0 0 0 / .8); 
-    display: none;   
-    z-index: 10;
+    display: none;
 }
 
 div.overlay.active {
@@ -324,6 +332,16 @@ div.overlay.active {
         height: 100%;
         width: 100%;
         border-radius: 0px;
+    }
+    .prev, .nxt{
+        display: block;
+        position: absolute;
+    }
+    .prev{
+        left: 2%;
+    }
+    .nxt{
+        right: 2%;
     }
     .product-details{
         height: auto;

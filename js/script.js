@@ -14,6 +14,8 @@ const mainImage = document.querySelector(".main-image");
 const lightBoxOverlay = document.querySelector(".lightbox-overlay");
 const lightClose = document.querySelector(".lightbox-close");
 
+// Checking for media query matchs
+const mediaQuery = window.matchMedia('(max-width: 375px)');
 
 addToCart.addEventListener('click', addItem);
 showUlBtn.addEventListener('click', showUl);
@@ -115,12 +117,12 @@ function closeUl(){
 }
 
 let selectedImg = ""
-function openLightBox(e){
-    lightBoxOverlay.style.display = "flex";
-    // function preview(){
-    //     selectedImg = e.target.src;
-    // }
-    // preview()
+function openLightBox(){
+    if(mediaQuery.matches){
+        return
+    }else{
+        lightBoxOverlay.style.display = "flex";
+    }
 }
 function closeLightBox(){
     lightBoxOverlay.style.display = "none";
