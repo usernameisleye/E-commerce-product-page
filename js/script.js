@@ -85,7 +85,7 @@ function addItem(){
 
                     <img class="delete" src="./images/icon-delete.svg" alt="">
                 </div>
-                <button>Checkout</button>
+                <button class="checkout">Checkout</button>
             </div>`
 
     if(count > 0){
@@ -94,7 +94,7 @@ function addItem(){
 }
 
 cartContent.addEventListener('click', e =>{
-    if(e.target.classList.contains('delete')){
+    if(e.target.classList.contains("delete") || e.target.classList.contains("checkout")){
         emptyCart = '';
         emptyCart += `<div class="cart">
                         <p>Cart</p>

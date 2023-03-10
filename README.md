@@ -4,15 +4,17 @@ This is a solution to the [E-commerce product page challenge on Frontend Mentor]
 
 ## Table of contents
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
+- [Frontend Mentor - E-commerce product page solution](#frontend-mentor---e-commerce-product-page-solution)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [The challenge](#the-challenge)
+    - [Screenshot](#screenshot)
+    - [Links](#links)
+    - [Built with](#built-with)
+    - [What I learned](#what-i-learned)
+    - [Continued development](#continued-development)
+    - [Useful resources](#useful-resources)
+  - [Author](#author)
 
 
 ## Overview
@@ -33,8 +35,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: []
-- Live Site URL: []
+- Solution URL: [https://github.com/usernameisleye/E-commerce-product-page]
+- Live Site URL: [https://usernameisleye.github.io/E-commerce-product-page/]
 
 ### Built with
 
@@ -45,7 +47,12 @@ Users should be able to:
 - Vanilla JS
 
 ### What I learned
-
+```js
+const mediaQuery = window.matchMedia('(max-width: 375px)')
+if(mediaQuery.matches){
+        return
+    }; etc.
+```
 
 ### Continued development
 

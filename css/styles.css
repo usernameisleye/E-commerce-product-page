@@ -155,9 +155,6 @@ main{
 .items div{
     height: 100%;
 }
-.items div img{
-    z-index: -100;
-}
 .cart-details button, .cart button{
     background-color: var(--Orange);
     color: var(--White);
@@ -278,6 +275,7 @@ div.overlay {
     right: 0;
     background: rgb(0 0 0 / .8); 
     display: none;
+    z-index: 10;
 }
 
 div.overlay.active {
@@ -297,7 +295,7 @@ div.overlay.active {
     }
     .links ul{
         background-color: var(--White);
-        z-index: 1;
+        z-index: 20;
         position: fixed;
         top: 0;
         left: -100%;
