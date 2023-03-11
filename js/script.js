@@ -11,6 +11,10 @@ const showUlBtn = document.querySelector('.tab');
 const ulTab = document.querySelector('.links ul');
 const closeUlBtn = document.querySelector('.links ul img');
 const mainImage = document.querySelector(".main-image");
+const mainImage2 = document.querySelector(".img-center");
+const thumbNails = document.querySelectorAll(".thumbnails img");
+const options = document.querySelector(".options");
+const options2 = document.querySelector(".options2");
 const lightBoxOverlay = document.querySelector(".lightbox-overlay");
 const lightClose = document.querySelector(".lightbox-close");
 
@@ -18,6 +22,8 @@ const lightClose = document.querySelector(".lightbox-close");
 const mediaQuery = window.matchMedia('(max-width: 375px)');
 
 addToCart.addEventListener('click', addItem);
+options.addEventListener("click", moveImg);
+options2.addEventListener("click", moveMobileImg)
 showUlBtn.addEventListener('click', showUl);
 closeUlBtn.addEventListener('click', closeUl);
 mainImage.addEventListener("click", openLightBox);
@@ -44,7 +50,7 @@ itemsBtns.forEach(btn =>{
         itemsNumber = count;
         total = `$${125 * count}`;
 
-        if (cartNum.innerText > 0){
+        if (items){
             cartNum.style.display = 'block';
         }
         else{
@@ -93,6 +99,7 @@ function addItem(){
     }else{return}               
 }
 
+// If checkout or delete btn is clicked, empty the cart
 cartContent.addEventListener('click', e =>{
     if(e.target.classList.contains("delete") || e.target.classList.contains("checkout")){
         emptyCart = '';
@@ -102,21 +109,22 @@ cartContent.addEventListener('click', e =>{
                     </div>`
         cartContent.innerHTML = emptyCart;
         document.querySelector('.overlay').classList.remove('active');
-        location.reload();
     }
 })
 
+// Open menu tab
 function showUl(){
     ulTab.classList.add('show-ul');
     document.querySelector('.overlay').classList.add('active');
 }
 
+// Close menu tab
 function closeUl(){
     ulTab.classList.remove('show-ul');
     document.querySelector('.overlay').classList.remove('active');
 }
 
-let selectedImg = ""
+// Open lightbox if media query is not in mobile view
 function openLightBox(){
     if(mediaQuery.matches){
         return
@@ -124,6 +132,184 @@ function openLightBox(){
         lightBoxOverlay.style.display = "flex";
     }
 }
+// Close lightbox
 function closeLightBox(){
     lightBoxOverlay.style.display = "none";
+}
+
+// Change main image when thumbnail is clicked
+Array.from(thumbNails).forEach((img) => {
+    img.addEventListener("click", () => {
+        Array.from(thumbNails).forEach((i) => {
+            i.classList.remove("active")
+        })
+        img.classList.add("active");
+
+        Array.from(thumbNails).forEach((i) => {
+            if(i.getAttribute("src") === img.getAttribute("src")){
+                i.classList.add("active");
+            }
+        })
+        mainImage.setAttribute("src", img.getAttribute("src").split("-thumbnail").join(""));
+        mainImage2.setAttribute("src", img.getAttribute("src").split("-thumbnail").join(""));
+    })
+})
+
+// Next and Previous options
+function moveImg(e){
+    if(e.target.classList.contains("next")){
+
+        let num = document.querySelector(".lightbox-subs img.active").getAttribute("data-number");
+
+        Array.from(thumbNails).forEach(i => {
+            i.classList.remove("active");
+        });
+
+        if(num < 4){
+            num++;
+            let source = document.querySelector(`[data-number = '${num}']`);
+
+            source.classList.add("active");
+            mainImage.setAttribute("src", source.getAttribute("src").split("-thumbnail").join(""));
+            mainImage2.setAttribute("src", source.getAttribute("src").split("-thumbnail").join(""));
+
+            Array.from(thumbNails).forEach((i)=>{
+                if(i.getAttribute("src") === source.getAttribute("src")){
+                    i.classList.add("active")
+                }
+            })
+
+        }
+
+        else{
+            num = 1 ;
+            let source = document.querySelector(`[data-number = '${num}']`);
+
+            source.classList.add("active");
+            mainImage.setAttribute("src", source.getAttribute("src").split("-thumbnail").join(""));
+            mainImage2.setAttribute("src", source.getAttribute("src").split("-thumbnail").join(""));    
+
+            Array.from(thumbNails).forEach((i)=>{
+                if(i.getAttribute("src") == source.getAttribute("src")){
+                    i.classList.add("active")
+                }
+            })
+    }
+    }
+    else if (e.target.classList.contains("previous")){
+        let num = document.querySelector(".lightbox-subs img.active").getAttribute("data-number");
+
+
+        Array.from(thumbNails).forEach((i)=>{
+            i.classList.remove("active");
+        });  
+
+        if(num > 1){
+                num--;
+                let source = document.querySelector(`[data-number = '${num}']`);
+
+                source.classList.add("active");
+                mainImage.setAttribute("src", source.getAttribute("src").split("-thumbnail").join(""));
+                mainImage2.setAttribute("src", source.getAttribute("src").split("-thumbnail").join(""));
+
+                Array.from(thumbNails).forEach((i)=>{
+                    if(i.getAttribute("src") == source.getAttribute("src")){
+                        i.classList.add("active")
+                    }
+                })
+            }
+            else{
+                num = 4 ;
+                let source = document.querySelector(`[data-number = '${num}']`);
+        
+                source.classList.add("active");
+                mainImage.setAttribute("src", source.getAttribute("src").split("-thumbnail").join(""));
+                mainImage2.setAttribute("src", source.getAttribute("src").split("-thumbnail").join(""));
+        
+                Array.from(thumbNails).forEach((i)=>{
+                    if(i.getAttribute("src") === source.getAttribute("src")){
+                        i.classList.add("active")
+                    }
+                })
+            }
+    }
+}
+
+function moveMobileImg(e){
+    if(e.target.classList.contains("nxt")){
+
+        let num = document.querySelector(".lightbox-subs img.active").getAttribute("data-number");
+
+        Array.from(thumbNails).forEach(i => {
+            i.classList.remove("active");
+        });
+
+        if(num < 4){
+            num++;
+            let source = document.querySelector(`[data-number = '${num}']`);
+
+            source.classList.add("active");
+            mainImage.setAttribute("src", source.getAttribute("src").split("-thumbnail").join(""));
+            mainImage2.setAttribute("src", source.getAttribute("src").split("-thumbnail").join(""));
+
+            Array.from(thumbNails).forEach((i)=>{
+                if(i.getAttribute("src") === source.getAttribute("src")){
+                    i.classList.add("active")
+                }
+            })
+
+        }
+
+        else{
+            num = 1 ;
+            let source = document.querySelector(`[data-number = '${num}']`);
+
+            source.classList.add("active");
+            mainImage.setAttribute("src", source.getAttribute("src").split("-thumbnail").join(""));
+            mainImage2.setAttribute("src", source.getAttribute("src").split("-thumbnail").join(""));    
+
+            Array.from(thumbNails).forEach((i)=>{
+                if(i.getAttribute("src") == source.getAttribute("src")){
+                    i.classList.add("active")
+                }
+            })
+    }
+    }
+    else if (e.target.classList.contains("prev")){
+        let num = document.querySelector(".lightbox-subs img.active").getAttribute("data-number");
+
+
+        Array.from(thumbNails).forEach((i)=>{
+            i.classList.remove("active");
+        });  
+
+        if(num > 1){
+                num--;
+                let source = document.querySelector(`[data-number = '${num}']`);
+
+                source.classList.add("active");
+                mainImage.setAttribute("src", source.getAttribute("src").split("-thumbnail").join(""));
+                mainImage2.setAttribute("src", source.getAttribute("src").split("-thumbnail").join(""));
+
+                Array.from(thumbNails).forEach((i)=>{
+                    if(i.getAttribute("src") == source.getAttribute("src")){
+                        i.classList.add("active")
+                    }
+                })
+            }
+            else{
+                num = 4 ;
+                let source = document.querySelector(`[data-number = '${num}']`);
+        
+                source.classList.add("active");
+                mainImage.setAttribute("src", source.getAttribute("src").split("-thumbnail").join(""));
+                mainImage2.setAttribute("src", source.getAttribute("src").split("-thumbnail").join(""));
+        
+                Array.from(thumbNails).forEach((i)=>{
+                    if(i.getAttribute("src") === source.getAttribute("src")){
+                        i.classList.add("active")
+                    }
+                })
+            }
+    }
 }

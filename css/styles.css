@@ -282,6 +282,50 @@ div.overlay.active {
     display: block;
 }
 
+@media screen and (max-width: 768px) {
+    .links ul{
+        background-color: var(--White);
+        z-index: 20;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 60vw;
+        height: 100vh;
+        transition: .5s;
+    }
+    .links ul.show-ul{
+        left: 0;
+    }
+    .links ul img, .tab, .tab-div{
+        display: block;
+    }
+    .tab-div img{
+        width: 1.5rem;
+    }
+    .links, .links ul, main, .cart-details{
+        flex-direction: column;
+    }
+    .main-image{
+        margin-left: 4rem;
+    }
+    .product-images{
+        width: 80%;
+        align-items: center;
+    }
+    .product-details{
+        height: auto;
+        width: auto;
+        padding: 1rem;
+    }
+    .items{
+        width: 100%;
+    }
+    .cart{
+        height: 22rem;
+        width: 24rem;
+    }
+}
+
 @media screen and (max-width: 375px) {
     nav{
         height: 12vh;
@@ -329,6 +373,7 @@ div.overlay.active {
     .main-image{
         height: 100%;
         width: 100%;
+        margin-left: 0;
         border-radius: 0px;
     }
     .prev, .nxt{
