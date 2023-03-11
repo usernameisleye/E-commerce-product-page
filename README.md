@@ -31,6 +31,8 @@ Users should be able to:
 - View the cart and remove items from it
 
 ### Screenshot
+![Screenshot (16)](https://user-images.githubusercontent.com/114527354/224366879-bdaf2fbb-5aa1-48c0-a7d5-0d1547045991.png)
+![Screenshot (17)](https://user-images.githubusercontent.com/114527354/224366893-0e48dd89-905f-4f7e-8682-a6fd9308e176.png)
 
 
 ### Links
